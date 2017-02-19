@@ -1,0 +1,6 @@
+TODO list:
+- parse command line arguments
+  # implement simple command, e.g.: ivy done 1 2 3, ivy swap 2 4
+- find a way to store data (a simple dotfile in ~?)
+- ncurses interface
+- stats and logs
