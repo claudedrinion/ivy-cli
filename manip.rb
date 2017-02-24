@@ -5,7 +5,7 @@
 def change(task, array_list)
   task = task.to_i
   if task < 1 || task > 6
-    return STDERR.puts "This task doesn't exist"
+    return STDERR.puts "ivy: cannot change task #{task}: No such task"
   end
   puts "Enter new task #{task}):"
   array_list[task.to_i - 1] = gets
