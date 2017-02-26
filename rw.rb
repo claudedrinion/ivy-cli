@@ -3,18 +3,26 @@
 # at the end we overwrite the list using each element of the array as a line
 
 def readList # read the list file and return an array
-  list_array = []
+  array_list = []
   i = 0
   File.open("list.txt").readlines.each do |line|
-    list_array[i] = line
+    array_list[i] = line
     i += 1
   end
-  return list_array
+  array_list
 end
 
 def displayList(array)
-  puts "Your current todo list:"
+  puts "Your current todo list (INSERT DATE):" #implement date
   array.length.times do |i|
     puts "#{i + 1}) #{array[i]}"
+  end
+end
+
+def writeList(array_list)
+  i = 0
+  File.open("list.txt", 'r').write.each do |line|
+    line = array_list[i]
+    i += 1
   end
 end

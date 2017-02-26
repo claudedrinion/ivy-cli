@@ -12,16 +12,22 @@ array_list = readList
 
 case command
 when nil
-displayList(array_list)
+  displayList(array_list)
 when "change", "c"
-    task = ARGV.shift
-    #implement test to see if task can be converted to int
-    change(task, array_list)
+  task = ARGV.shift
+  #TODO: find a way to delete clear STDIN...
+  # there is a bug when a there are extra arguments
+  # UPDATE: resolved with $stdin.gets instead of gets in the method?
+  array_list = change(task, array_list)
+  # write over the old list
+  writeList(array_list)
 when "done", "finish"
-    puts "TODO2"
+  task = ARGV.shift
+  array_list = done(task, array_list)
+  # write over the old list
+  writeList(array_list)
 else
-    STDERR.puts "'#{command}': invalid parameter.\n"
-    command = "help"
+  STDERR.puts "'#{command}': invalid parameter."
+  STDERR.puts "Try ivy --help"
 end
-
 
