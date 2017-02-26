@@ -3,6 +3,12 @@
 
 # todo: implement multiple arguments
 def change(task, array_list)
+  # Is it better to be silent or should we explicitly ask for input?
+  if task == "no_user_input"
+    puts "Which task do you want to change?"
+    task = $stdin.gets.chomp
+  end
+
   if task.to_i < 1 || task.to_i > 6
     STDERR.puts "ivy: cannot change task '#{task}': No such task"
   else
@@ -23,3 +29,14 @@ def done(task, array_list)
   array_list
 end
 
+def swap(task1, task2, array_list)
+  if task1.to_i < 1 || task1.to_i > 6 || task2.to_i < 1 || task2.to_i > 6
+    STDERR.puts "ivy: cannot swap tasks '#{task1}' and '#{task2}':
+    No such task(s)"
+  else
+    tmp = array_list[task1.to_i - 1]
+    array_list[task1.to_i - 1] = array_list[task2.to_i - 1]
+    array_list[task2.to_i - 1] = tmp
+    displayList(array_list)
+  end
+end
