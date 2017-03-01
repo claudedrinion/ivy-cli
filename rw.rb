@@ -20,9 +20,7 @@ def displayList(array)
 end
 
 def writeList(array_list)
-  i = 0
-  File.open("list.txt", 'r').write.each do |line|
-    line = array_list[i]
-    i += 1
+  File.open("list.txt", 'w+') do |file|
+    array_list.each { |element| file.puts(element) }
   end
 end

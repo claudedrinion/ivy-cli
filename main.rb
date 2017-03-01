@@ -36,6 +36,8 @@ when "swap", "s"
   task2 = ARGV.shift
   array_list = swap(task1, task2, array_list)
   writeList(array_list)
+when "new", "n"
+  firstList
 else
   STDERR.puts "'#{command}': invalid parameter."
   STDERR.puts "Try ivy --help"

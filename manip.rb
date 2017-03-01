@@ -1,6 +1,7 @@
 # some method to manipulate the list
 # we use an array as a proxy for the manipulation
 
+
 # todo: implement multiple arguments
 def change(task, array_list)
   # Is it better to be silent or should we explicitly ask for input?
@@ -19,6 +20,7 @@ def change(task, array_list)
   array_list
 end
 
+
 def done(task, array_list)
   if task.to_i < 1 || task.to_i > 6
     STDERR.puts "ivy: cannot finish task '#{task}': No such task"
@@ -28,6 +30,7 @@ def done(task, array_list)
   end
   array_list
 end
+
 
 def swap(task1, task2, array_list)
   if task1.to_i < 1 || task1.to_i > 6 || task2.to_i < 1 || task2.to_i > 6
@@ -40,3 +43,5 @@ def swap(task1, task2, array_list)
     displayList(array_list)
   end
 end
+
+
